@@ -13,7 +13,7 @@ pkgconfig_DATA = libOMX_Core.pc
 
 EXTRA_DIST = libOMX_Core.pc.in linker.script.in
 
-BUILT_SOURCES = linker.script
+BUILT_SOURCES = linker.script libOMX_Core.pc
 
 linker.script: $(srcdir)/linker.script.in
 	sed -e "s?@OMX_INSTALL_DIR@?$(OMX_INSTALL_DIR)?" \
@@ -22,6 +22,17 @@ linker.script: $(srcdir)/linker.script.in
 	    -e "s?@FC_INSTALL_DIR@?$(FC_INSTALL_DIR)?" \
 	    -e "s?@UIA_INSTALL_DIR@?$(UIA_INSTALL_DIR)?" \
 	    -e "s?@LINUXUTILS_INSTALL_DIR@?$(LINUXUTILS_INSTALL_DIR)?" \
+	    $< > $@
+
+libOMX_Core.pc: $(srcdir)/libOMX_Core.pc.in
+	sed -e "s?@&prefix@?@prefix@?" \
+	    -e "s?@&exec_prefix@?@exec_prefix@?" \
+	    -e "s?@&libdir@?@libdir@?" \
+	    -e "s?@&VERSION@?@VERSION@?" \
+	    -e "s?@&OMXVERSION@?@OMXVERSION@?" \
+	    -e "s?@OMX_INSTALL_DIR@?$(OMX_INSTALL_DIR)?" \
+	    -e "s?@XDC_INSTALL_DIR@?$(XDC_INSTALL_DIR)?" \
+	    -e "s?@KERNEL_INSTALL_DIR@?$(KERNEL_INSTALL_DIR)?g" \
 	    $< > $@
 
 clean-local:

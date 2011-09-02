@@ -38,8 +38,8 @@ host_triplet = @host@
 subdir = .
 DIST_COMMON = README $(am__configure_deps) $(srcdir)/Makefile.am \
 	$(srcdir)/Makefile.in $(srcdir)/config.h.in \
-	$(srcdir)/libOMX_Core.pc.in $(top_srcdir)/configure \
-	config.guess config.sub depcomp install-sh ltmain.sh missing
+	$(top_srcdir)/configure config.guess config.sub depcomp \
+	install-sh ltmain.sh missing
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
@@ -48,7 +48,7 @@ am__CONFIG_DISTCLEAN_FILES = config.status config.cache config.log \
  configure.lineno config.status.lineno
 mkinstalldirs = $(install_sh) -d
 CONFIG_HEADER = config.h
-CONFIG_CLEAN_FILES = libOMX_Core.pc
+CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 am__vpath_adj_setup = srcdirstrip=`echo "$(srcdir)" | sed 's|.|.|g'`;
 am__vpath_adj = case $$p in \
@@ -249,7 +249,7 @@ libOMX_Core_la_LDFLAGS = -version-info 1:0:0 \
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = libOMX_Core.pc
 EXTRA_DIST = libOMX_Core.pc.in linker.script.in
-BUILT_SOURCES = linker.script
+BUILT_SOURCES = linker.script libOMX_Core.pc
 all: $(BUILT_SOURCES) config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-am
 
@@ -306,8 +306,6 @@ $(srcdir)/config.h.in:  $(am__configure_deps)
 
 distclean-hdr:
 	-rm -f config.h stamp-h1
-libOMX_Core.pc: $(top_builddir)/config.status $(srcdir)/libOMX_Core.pc.in
-	cd $(top_builddir) && $(SHELL) ./config.status $@
 install-libLTLIBRARIES: $(lib_LTLIBRARIES)
 	@$(NORMAL_INSTALL)
 	test -z "$(libdir)" || $(MKDIR_P) "$(DESTDIR)$(libdir)"
@@ -740,6 +738,17 @@ linker.script: $(srcdir)/linker.script.in
 	    -e "s?@FC_INSTALL_DIR@?$(FC_INSTALL_DIR)?" \
 	    -e "s?@UIA_INSTALL_DIR@?$(UIA_INSTALL_DIR)?" \
 	    -e "s?@LINUXUTILS_INSTALL_DIR@?$(LINUXUTILS_INSTALL_DIR)?" \
+	    $< > $@
+
+libOMX_Core.pc: $(srcdir)/libOMX_Core.pc.in
+	sed -e "s?@&prefix@?@prefix@?" \
+	    -e "s?@&exec_prefix@?@exec_prefix@?" \
+	    -e "s?@&libdir@?@libdir@?" \
+	    -e "s?@&VERSION@?@VERSION@?" \
+	    -e "s?@&OMXVERSION@?@OMXVERSION@?" \
+	    -e "s?@OMX_INSTALL_DIR@?$(OMX_INSTALL_DIR)?" \
+	    -e "s?@XDC_INSTALL_DIR@?$(XDC_INSTALL_DIR)?" \
+	    -e "s?@KERNEL_INSTALL_DIR@?$(KERNEL_INSTALL_DIR)?g" \
 	    $< > $@
 
 clean-local:

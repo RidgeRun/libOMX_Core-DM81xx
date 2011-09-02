@@ -32,5 +32,5 @@ fi
 OMXVERSION=`basename $EZSDKDIR/component-sources/omx_* | sed "s/omx_//"`
 AC_SUBST(OMXVERSION,$OMXVERSION)
 
-AC_CONFIG_FILES([Makefile libOMX_Core.pc])
+AC_CONFIG_FILES([Makefile])
 AC_OUTPUT
