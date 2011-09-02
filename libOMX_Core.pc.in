@@ -1,0 +1,10 @@
+prefix=@prefix@
+exec_prefix=@exec_prefix@
+libdir=@libdir@
+omxversion=@OMXVERSION@
+
+Name: OMX Core
+Description: OMX Components for DM81xx
+Version: @VERSION@
+Libs: -L${libdir} -lOMX_Core
+Cflags: -I@EZSDKDIR@/component-sources/omx_${omxversion}/include/
