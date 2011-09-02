@@ -13,8 +13,8 @@ Cflags: -Dxdc_target_name__=GCArmv5T -Dxdc_target_types__=gnu/targets/arm/std.h 
 -I@OMX_INSTALL_DIR@/include \
 -I@OMX_INSTALL_DIR@/packages/ti/omx/comp/ctrl \
 -I@OMX_INSTALL_DIR@/packages/ti/omx/interfaces/openMaxv11  \
--I@OMX_INSTALL_DIR@/packages/ti/omx/comp/vfpc  \
+-I@OMX_INSTALL_DIR@/packages/ti/omx/comp/vfpc \
 -I@OMX_INSTALL_DIR@/packages/ti/omx/comp/vfdc \
--I@OMX_INSTALL_DIR@/packages/ti/omx/comp/ctrl
+-I@OMX_INSTALL_DIR@/packages/ti/omx/comp/ctrl \
 -I@KERNEL_INSTALL_DIR@/include -I@KERNEL_INSTALL_DIR@/arch/arm/include \
 -I@XDC_INSTALL_DIR@/packages
