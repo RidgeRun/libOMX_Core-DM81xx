@@ -186,6 +186,7 @@ SED = @SED@
 SET_MAKE = @SET_MAKE@
 SHELL = @SHELL@
 STRIP = @STRIP@
+TARGETPLATFORM = @TARGETPLATFORM@
 VERSION = @VERSION@
 abs_builddir = @abs_builddir@
 abs_srcdir = @abs_srcdir@
@@ -738,6 +739,7 @@ linker.script: $(srcdir)/linker.script.in
 	    -e "s?@FC_INSTALL_DIR@?$(FC_INSTALL_DIR)?" \
 	    -e "s?@UIA_INSTALL_DIR@?$(UIA_INSTALL_DIR)?" \
 	    -e "s?@LINUXUTILS_INSTALL_DIR@?$(LINUXUTILS_INSTALL_DIR)?" \
+	    -e "s?@PLATFORM@?$(TARGETPLATFORM)?" \
 	    $< > $@
 
 libOMX_Core.pc: $(srcdir)/libOMX_Core.pc.in

@@ -24,6 +24,20 @@ if test -z $EZSDKDIR ; then
   AC_MSG_ERROR([you need to provide the path for the EZSDK installation dir!])
 fi
 
+AC_ARG_VAR([TARGETPLATFORM], [target platform])
+AC_ARG_WITH(platform,
+    [AS_HELP_STRING([--with-platform=<targetPlatform>],
+        [Set the platform of your target board])],
+    [AC_MSG_NOTICE([Setting the platform "$withval"])
+     AC_SUBST([TARGETPLATFORM],[$withval])
+    ]
+)
+
+if test -z $TARGETPLATFORM ; then
+  AC_MSG_ERROR([you need to provide the platform that you are using!])
+fi
+
+
 if ! test -f $EZSDKDIR/Rules.make ; then
   AC_MSG_ERROR([Can not find Rules.make in the EZSDK installation directory provided ($EZSDKDIR/Rules.make)])
 fi

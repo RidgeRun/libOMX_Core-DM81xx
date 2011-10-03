@@ -22,6 +22,7 @@ linker.script: $(srcdir)/linker.script.in
 	    -e "s?@FC_INSTALL_DIR@?$(FC_INSTALL_DIR)?" \
 	    -e "s?@UIA_INSTALL_DIR@?$(UIA_INSTALL_DIR)?" \
 	    -e "s?@LINUXUTILS_INSTALL_DIR@?$(LINUXUTILS_INSTALL_DIR)?" \
+	    -e "s?@PLATFORM@?$(TARGETPLATFORM)?" \
 	    $< > $@
 
 libOMX_Core.pc: $(srcdir)/libOMX_Core.pc.in
