@@ -34,7 +34,7 @@ AC_ARG_WITH(platform,
 )
 
 if test -z $TARGETPLATFORM ; then
-  AC_MSG_ERROR([you need to provide the platform that you are using!])
+  AC_MSG_ERROR([you need to provide the platform that you are using: ti814x-evm or ti816x-evm])
 fi
 
 

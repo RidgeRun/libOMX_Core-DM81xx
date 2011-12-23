@@ -10510,7 +10510,7 @@ fi
 
 
 if test -z $TARGETPLATFORM ; then
-  as_fn_error $? "you need to provide the platform that you are using!" "$LINENO" 5
+  as_fn_error $? "you need to provide the platform that you are using: ti814x-evm or ti816x-evm" "$LINENO" 5
 fi
 
 

@@ -8,13 +8,10 @@ Description: OMX Components for DM81xx
 Version: @&VERSION@
 Libs: -L${libdir} -lOMX_Core
 Cflags: -Dxdc_target_name__=GCArmv5T -Dxdc_target_types__=gnu/targets/arm/std.h -Dxdc__RESTRICT__ \
--I@OMX_INSTALL_DIR@/include/openMaxv11 \
--I@OMX_INSTALL_DIR@/packages \
+-D_LOCAL_CORE_a8host_ -DGlobal_appTerminate=0 -DGlobal_GrpxDssMsgHeapId=6 -DGlobal_TilerHeapId=7 -D_VIDEO_M3_DYNAMIC_CONFIG \
+-DCODEC_H264ENC -DCODEC_H264DEC -DCODEC_MPEG4DEC -DCODEC_MPEG4ENC -DCODEC_MPEG2DEC -DCODEC_VC1DEC \
 -I@OMX_INSTALL_DIR@/include \
--I@OMX_INSTALL_DIR@/packages/ti/omx/comp/ctrl \
--I@OMX_INSTALL_DIR@/packages/ti/omx/interfaces/openMaxv11  \
--I@OMX_INSTALL_DIR@/packages/ti/omx/comp/vfpc \
--I@OMX_INSTALL_DIR@/packages/ti/omx/comp/vfdc \
--I@OMX_INSTALL_DIR@/packages/ti/omx/comp/ctrl \
+-I@OMX_INSTALL_DIR@/src/ti/omx/interfaces/openMaxv11  \
 -I@KERNEL_INSTALL_DIR@/include -I@KERNEL_INSTALL_DIR@/arch/arm/include \
--I@XDC_INSTALL_DIR@/packages
+-I@XDC_INSTALL_DIR@/packages -I@CE_INSTALL_DIR@/packages \
+-I@XDAIS_INSTALL_DIR@/packages -I@FC_INSTALL_DIR@/packages
