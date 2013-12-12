@@ -15,4 +15,5 @@ Cflags: -Dxdc_target_name__=GCArmv5T -Dxdc_target_types__=gnu/targets/arm/std.h 
 -I@KERNEL_INSTALL_DIR@/include -I@KERNEL_INSTALL_DIR@/arch/arm/include \
 -I@XDC_INSTALL_DIR@/packages -I@CE_INSTALL_DIR@/packages \
 -I@XDAIS_INSTALL_DIR@/packages -I@FC_INSTALL_DIR@/packages \
--I@SYSLINK_INSTALL_DIR@/packages 
+-I@SYSLINK_INSTALL_DIR@/packages \
+-I@IPC_INSTALL_DIR@/packages

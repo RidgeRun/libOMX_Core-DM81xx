@@ -755,6 +755,7 @@ libOMX_Core.pc: $(srcdir)/libOMX_Core.pc.in
 	    -e "s?@XDC_INSTALL_DIR@?$(XDC_INSTALL_DIR)?" \
 	    -e "s?@SYSLINK_INSTALL_DIR@?$(SYSLINK_INSTALL_DIR)?" \
 	    -e "s?@KERNEL_INSTALL_DIR@?$(KERNEL_INSTALL_DIR)?g" \
+	    -e "s?@IPC_INSTALL_DIR@?$(IPC_INSTALL_DIR)?g" \
 	    $< > $@
 
 clean-local:
