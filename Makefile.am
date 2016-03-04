@@ -31,6 +31,7 @@ libOMX_Core.pc: $(srcdir)/libOMX_Core.pc.in
 	    -e "s?@&libdir@?@libdir@?" \
 	    -e "s?@&VERSION@?@VERSION@?" \
 	    -e "s?@&OMXVERSION@?@OMXVERSION@?" \
+	    -e "s?@FSROOT@?$(FSROOT)?" \
 	    -e "s?@OMX_INSTALL_DIR@?$(OMX_INSTALL_DIR)?" \
 	    -e "s?@CE_INSTALL_DIR@?$(CE_INSTALL_DIR)?" \
 	    -e "s?@FC_INSTALL_DIR@?$(FC_INSTALL_DIR)?" \

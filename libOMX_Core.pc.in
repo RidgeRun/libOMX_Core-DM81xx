@@ -6,7 +6,7 @@ omxversion=@&OMXVERSION@
 Name: OMX Core
 Description: OMX Components for DM81xx
 Version: @&VERSION@
-Libs: -L${libdir} -lOMX_Core
+Libs: -L${libdir} -lOMX_Core -L@FSROOT@/usr/lib -ltiomx
 Cflags: -Dxdc_target_name__=GCArmv5T -Dxdc_target_types__=gnu/targets/arm/std.h -Dxdc__RESTRICT__ \
 -D_LOCAL_CORE_a8host_ -DGlobal_appTerminate=0 -DGlobal_GrpxDssMsgHeapId=6 -DGlobal_TilerHeapId=7 -D_VIDEO_M3_DYNAMIC_CONFIG \
 -DCODEC_H264ENC -DCODEC_H264DEC -DCODEC_MPEG4DEC -DCODEC_MPEG4ENC -DCODEC_MPEG2DEC -DCODEC_VC1DEC \
